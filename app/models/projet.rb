@@ -25,4 +25,11 @@ class Projet < ActiveRecord::Base
     "#{percent.round(2)}"
   end
 
+  def done(projet)
+    wallet = business(projet)
+    target = projet.objectif
+
+    wallet >= target
+  end
+
 end

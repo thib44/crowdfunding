@@ -15,10 +15,10 @@
         <h3 class="margin-top text-center"><%= @projet.nom %></h3>
         <%= render 'progress_bar', projet: @projet %>
 
-          </div>
-
-
         <h4 class="text-center"><%= @projet.percent(@projet) %>%</h4>
+        <% if @projet.done(@projet) %>
+          <p>Projet Validé :-)</p>
+        <% end %>
 
 
         <p>Objectif : <strong><%= @projet.business(@projet) %>€ / <%= @projet.objectif %>€</strong></p>
@@ -28,6 +28,8 @@
             <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
           </div>
         <% end %>
+      </div>
+
         <h3 class="text-center"> Participations : </h3>
         <%= render @contributions %>
       </div>
