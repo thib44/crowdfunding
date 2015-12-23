@@ -7,7 +7,9 @@
         <% end %>
         <h3><%= projet.nom %></h3>
       <% end %>
-      <strong class="text-center"><%= projet.objectif %>€</strong><br/>
+      <strong class="text-center"><%= projet.objectif %>€</strong>
+        <%= render 'projets/progress_bar', projet: projet %>
+
     </div>
     <%= projet.description %><br/>
     <%= projet.user.email %>
