@@ -29,6 +29,7 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'simple_form'
 gem "autoprefixer-rails"
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
