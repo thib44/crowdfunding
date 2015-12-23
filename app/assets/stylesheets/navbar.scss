@@ -71,15 +71,15 @@ $brand-color: #D23333;
     padding: 0 20px;
     border-radius: 20em;
     line-height: 40px;
-    background-color: #D23333;
+    background-color: #18BC9C;
     color: white;
     font-size: 14px;
-    border: 2px solid $brand-color;
+    border: 2px solid #18D4AF;
 
     &:hover {
       color: white;
-      background: $brand-color;
-      border-color: darken($brand-color, 10%);
+      background: #18BC9C;
+      border-color: darken(#18D4AF, 10%);
     }
   }
   &-dropdown-menu {
