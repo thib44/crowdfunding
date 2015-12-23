@@ -1,0 +1,13 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="projet">
+    <div class="text-center">
+      <%= link_to projet_path(projet) do %>
+        <h3><%= projet.nom %></h3>
+      <% end %>
+      <strong class="text-center"><%= projet.objectif %>€</strong><br/>
+    </div>
+    <%= projet.description %><br/>
+    <%= projet.user.email %>
+  </div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 projet text-center margin-top">
+      <h3><%= @projet.nom %></h3>
+      <strong class="text-center"><%= @projet.objectif %>€</strong><br/>
+      <%= @projet.description %><br/>
+      <%= @projet.user.email %>
+    </div>
+    <div class="col-xs-12 col-sm-4 text-center margin-top">
+      <% if user_signed_in? %>
+       <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success' %>
+      <% end %>
+      <h3> Participations : </h3>
+      <%= render @contributions %>
+    </div>
+
+  </div>
+</div>
+
+
+
