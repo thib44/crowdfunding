@@ -1,17 +1,40 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 projet text-center margin-top">
-      <h3><%= @projet.nom %></h3>
-      <strong class="text-center"><%= @projet.objectif %>€</strong><br/>
-      <%= @projet.description %><br/>
-      <%= @projet.user.email %>
+    <div class="col-xs-12 col-sm-8  text-center margin-top">
+      <% if @projet.picture.url %>
+            <%= image_tag @projet.picture, class: "full_img" %>
+        <% end %>
+      <div class="margin-top">
+        <%= @projet.description %><br/>
+
+      </div>
+
     </div>
-    <div class="col-xs-12 col-sm-4 text-center margin-top">
-      <% if user_signed_in? %>
-       <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success' %>
-      <% end %>
-      <h3> Participations : </h3>
-      <%= render @contributions %>
+    <div class="col-xs-12 col-sm-4 margin-top">
+      <div class="projet">
+        <h3 class="margin-top text-center"><%= @projet.nom %></h3>
+           <div class="progress">
+            <div class="progress-bar-success" role="progressbar" aria-valuenow=<%= @projet.percent(@projet) %>
+            aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@projet.percent(@projet)}%" %>>
+              <%= @projet.percent(@projet) %>%
+            </div>
+          </div>
+
+
+        <h4 class="text-center"><%= @projet.percent(@projet) %>%</h4>
+
+
+        <p>Objectif : <strong><%= @projet.business(@projet) %>€ / <%= @projet.objectif %>€</strong></p>
+        <p>Porteur : <strong><%= @projet.user.email %></strong></p>
+        <% if user_signed_in? %>
+          <div class="text-center">
+            <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
+          </div>
+        <% end %>
+        <h3 class="text-center"> Participations : </h3>
+        <%= render @contributions %>
+      </div>
+
     </div>
 
   </div>
