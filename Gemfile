@@ -33,6 +33,7 @@ gem "autoprefixer-rails"
 #picture
 gem 'carrierwave'
 gem "mini_magick"
+gem "rails-erd"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
