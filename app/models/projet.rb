@@ -33,6 +33,10 @@ class Projet < ActiveRecord::Base
     "#{percent.round(2)}"
   end
 
+  def to_param
+    "#{id.to_s}-#{nom.parameterize}"
+  end
+
   def done
     wallet = amount_contributed
     target = objectif

@@ -1,18 +1,18 @@
 <div class="col-xs-12 col-sm-4">
-  <div class="projet margin-top">
-    <div class="text-center">
-      <%= link_to projet_path(projet) do %>
-        <% if projet.picture.url %>
+  <div class="projet margin-top panel panel-default">
+            <% if projet.picture.url %>
             <%= image_tag projet.picture.special, class: "centered" %>
         <% end %>
+    <div class="text-center panel-body">
+      <%= link_to projet_path(projet) do %>
+
         <h3><%= projet.nom %></h3>
       <% end %>
-      <strong class="text-center"><%= projet.objectif %>€</strong>
-
+      <strong class="text-center"><%= projet.objectif %>€</strong><br/>
+      <%= projet.description %><br/>
+      <%= render 'projets/progress_bar', projet: projet %>
     </div>
-    <%= projet.description %><br/>
-    <%= render 'projets/progress_bar', projet: projet %>
-    <%= render 'projets/done', projet: projet %>
+
   </div>
 </div>
 

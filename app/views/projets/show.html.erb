@@ -25,7 +25,6 @@
         <% if user_signed_in? %>
           <div class="text-center">
             <% if @projet.contributable? %>
-            <%= @projet.end_date < Date.today %>
               <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
             <% end %>
           </div>

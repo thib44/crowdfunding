@@ -57,6 +57,9 @@
 <row name="picture" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
+<row name="end_date" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -66,6 +69,9 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <row name="email" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="password" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
@@ -84,7 +90,7 @@
 <datatype>TINYINT</datatype>
 <default>NULL</default><relation table="projet" row="id" />
 </row>
-<row name="montant" null="1" autoincrement="0">
+<row name="amount" null="1" autoincrement="0">
 <datatype>TINYINT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
