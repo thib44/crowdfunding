@@ -3,7 +3,7 @@
     <div class="text-center">
       <%= link_to projet_path(projet) do %>
         <% if projet.picture.url %>
-            <%= image_tag projet.picture.thumb, class: "centered" %>
+            <%= image_tag projet.picture.special, class: "centered" %>
         <% end %>
         <h3><%= projet.nom %></h3>
       <% end %>
