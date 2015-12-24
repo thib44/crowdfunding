@@ -1,22 +1,29 @@
 class Projet < ActiveRecord::Base
   belongs_to :user
-  validates :objectif, :nom, :description, :user, :picture,  presence: true
+  validates :objectif, :nom, :description, :user, :picture, :end_date,  presence: true
   has_many :contributions, dependent: :destroy
   validates :objectif, numericality: { greater_than: 0 }
+  validate :end_date_cannot_be_in_the_past
 
   mount_uploader :picture, PictureUploader
 
-  def business(projet)
-    wallet = 0
-    projet.contributions.each do |c|
-      wallet += c.amount
+  def end_date_cannot_be_in_the_past
+    unless contributable?
+      errors.add(:end_date, "can't be in the past")
     end
-    wallet
   end
 
-  def percent(projet)
-    wallet = business(projet)
-    target = projet.objectif
+  def contributable?
+    end_date > Date.today
+  end
+
+  def amount_contributed
+    contributions.sum :amount
+  end
+
+  def percent
+    wallet = amount_contributed
+    target = objectif
     if wallet > 0
       percent = (wallet / target.to_f)*100
     else
@@ -26,11 +33,14 @@ class Projet < ActiveRecord::Base
     "#{percent.round(2)}"
   end
 
-  def done(projet)
-    wallet = business(projet)
-    target = projet.objectif
+  def done
+    wallet = amount_contributed
+    target = objectif
 
     wallet >= target
   end
 
+  def days_left
+   [0, (end_date - Date.today).to_i].max
+  end
 end

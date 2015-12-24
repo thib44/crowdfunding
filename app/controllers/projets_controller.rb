@@ -23,7 +23,7 @@ class ProjetsController < Users::ApplicationController
 
   private
   def projet_params
-    params.require(:projet).permit(:objectif, :nom, :description, :picture)
+    params.require(:projet).permit(:objectif, :nom, :description, :picture, :end_date)
   end
 
   def find_projet
