@@ -7,6 +7,7 @@
         <%= f.input :objectif, placeholder: "Montant à atteindre", label: false %>
         <%= f.input :nom, placeholder: 'Nom de votre campagne', label: false %>
         <%= f.input :description, as: :text, placeholder: 'Description de votre campagne', label: false %>
+        <%= f.datetime :end_date %>
         <%= f.input :picture %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>

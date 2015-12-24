@@ -1,6 +1,6 @@
 class Projet < ActiveRecord::Base
   belongs_to :user
-  validates :objectif, :nom, :description, :user, :picture,  presence: true
+  validates :objectif, :nom, :description, :user, :picture, :end_date,  presence: true
   has_many :contributions, dependent: :destroy
   validates :objectif, numericality: { greater_than: 0 }
 
