@@ -4,7 +4,7 @@ class Contribution < ActiveRecord::Base
 
   validates :amount, :user, :projet, presence: true
   validates :amount, numericality: { greater_than: 0 }
-  validate :cannot_be_after_end_of_project
+  # validate :cannot_be_after_end_of_project
 
   def cannot_be_after_end_of_project
     if projet.end_date < Date.today
