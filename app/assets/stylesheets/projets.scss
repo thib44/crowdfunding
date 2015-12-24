@@ -31,12 +31,23 @@
     font-size: 21px;
     color: #18BC9C;
   }
-
+  .blue {
+    background-color: #3498DB;
+    color: white;
+    border-radius: 8px;
+    margin-left: 42%;
+    padding-right: 5px;
+    padding-left: 5px
+  }
 }
 .margin-top {
   margin-top: 15px;
 }
 .full_img {
   width: 100%;
+}
+
+.padding-10 {
+  padding: 10px;
 }
 

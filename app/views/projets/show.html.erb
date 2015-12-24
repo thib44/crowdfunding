@@ -11,7 +11,7 @@
 
     </div>
     <div class="col-xs-12 col-sm-4 margin-top">
-      <div class="projet">
+      <div class="projet padding-10">
         <h3 class="margin-top text-center"><%= @projet.nom %></h3>
         <%= render 'progress_bar', projet: @projet %>
 
@@ -20,6 +20,7 @@
 
 
         <p>Objectif : <strong><%= @projet.business(@projet) %>€ / <%= @projet.objectif %>€</strong></p>
+        <span class="text-center blue"><%= @projet.time_to_end(@projet) %></span>
         <p>Porteur : <strong><%= @projet.user.email %></strong></p>
         <% if user_signed_in? %>
           <div class="text-center">
