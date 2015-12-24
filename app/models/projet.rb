@@ -8,22 +8,22 @@ class Projet < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   def end_date_cannot_be_in_the_past
-    if end_date.present? && end_date < Date.today
+    unless contributable?
       errors.add(:end_date, "can't be in the past")
     end
   end
 
-  def business(projet)
-    wallet = 0
-    projet.contributions.each do |c|
-      wallet += c.amount
-    end
-    wallet
+  def contributable?
+    end_date > Date.today
   end
 
-  def percent(projet)
-    wallet = business(projet)
-    target = projet.objectif
+  def amount_contributed
+    contributions.sum :amount
+  end
+
+  def percent
+    wallet = amount_contributed
+    target = objectif
     if wallet > 0
       percent = (wallet / target.to_f)*100
     else
@@ -33,22 +33,14 @@ class Projet < ActiveRecord::Base
     "#{percent.round(2)}"
   end
 
-  def done(projet)
-    wallet = business(projet)
-    target = projet.objectif
+  def done
+    wallet = amount_contributed
+    target = objectif
 
     wallet >= target
   end
 
-  def time_to_end(projet)
-    now = Date.today
-    finish = projet.end_date.to_date
-    rest = finish.mjd - now.mjd
-    if rest >= 0
-      "J-#{rest}"
-    else
-      "Time over"
-    end
+  def days_left
+   [0, (end_date - Date.today).to_i].max
   end
-
 end

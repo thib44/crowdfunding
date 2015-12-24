@@ -15,16 +15,19 @@
         <h3 class="margin-top text-center"><%= @projet.nom %></h3>
         <%= render 'progress_bar', projet: @projet %>
 
-        <h4 class="text-center"><%= @projet.percent(@projet) %>%</h4>
+        <h4 class="text-center"><%= @projet.percent %>%</h4>
         <%= render 'done', projet: @projet %>
 
 
-        <p>Objectif : <strong><%= @projet.business(@projet) %>€ / <%= @projet.objectif %>€</strong></p>
-        <span class="text-center blue"><%= @projet.time_to_end(@projet) %></span>
+        <p>Objectif : <strong><%= @projet.amount_contributed %>€ / <%= @projet.objectif %>€</strong></p>
+        <span class="text-center blue">J-<%= @projet.days_left %></span>
         <p>Porteur : <strong><%= @projet.user.email %></strong></p>
         <% if user_signed_in? %>
           <div class="text-center">
-            <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
+            <% if @projet.contributable? %>
+            <%= @projet.end_date < Date.today %>
+              <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
+            <% end %>
           </div>
         <% end %>
       </div>
