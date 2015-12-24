@@ -1,7 +1,7 @@
 class Projet < ActiveRecord::Base
   belongs_to :user
   validates :objectif, :nom, :description, :user, :picture, :end_date,  presence: true
-  has_many :contributions, dependent: :destroy#, conditions: { end_date.to_date > DateTime.now.do_date }
+  has_many :contributions, dependent: :destroy
   validates :objectif, numericality: { greater_than: 0 }
   validate :end_date_cannot_be_in_the_past
 
