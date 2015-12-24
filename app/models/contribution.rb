@@ -7,7 +7,7 @@ class Contribution < ActiveRecord::Base
   validate :cannot_be_after_end_of_project
 
   def cannot_be_after_end_of_project
-    if projet.end_date.to_date < Date.today
+    if projet.end_date < Date.today
       errors.add(:amount, "Sorry the project is finish")
     end
   end

@@ -8,7 +8,7 @@ class Projet < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   def end_date_cannot_be_in_the_past
-    if end_date.present? && end_date.to_date < Date.today
+    if end_date.present? && end_date < Date.today
       errors.add(:end_date, "can't be in the past")
     end
   end
@@ -41,7 +41,7 @@ class Projet < ActiveRecord::Base
   end
 
   def time_to_end(projet)
-    now = DateTime.now.to_date
+    now = Date.today
     finish = projet.end_date.to_date
     rest = finish.mjd - now.mjd
     if rest >= 0
