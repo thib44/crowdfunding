@@ -2,6 +2,7 @@ class Projet < ActiveRecord::Base
   belongs_to :user
   validates :objectif, :nom, :description, :user, :picture,  presence: true
   has_many :contributions, dependent: :destroy
+  validates :objectif, numericality: { greater_than: 0 }
 
   mount_uploader :picture, PictureUploader
 

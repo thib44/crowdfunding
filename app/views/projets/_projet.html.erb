@@ -11,8 +11,8 @@
 
     </div>
     <%= projet.description %><br/>
-    <%= projet.user.email %>
     <%= render 'projets/progress_bar', projet: projet %>
+    <%= render 'projets/done', projet: projet %>
   </div>
 </div>
 
