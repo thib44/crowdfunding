@@ -1,8 +1,8 @@
 class Contribution < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :projet
+  belongs_to :user, required: true
+  belongs_to :projet, required: true
 
-  validates :amount, :user, :projet, presence: true
+  validates :amount, presence: true
   validates :amount, numericality: { greater_than: 0 }
   # validate :cannot_be_after_end_of_project
 

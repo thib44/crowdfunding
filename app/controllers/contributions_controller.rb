@@ -1,5 +1,5 @@
 class ContributionsController < Users::ApplicationController
-  before_action :find_projet, only: [:new, :create]
+  before_action :find_projet
   def new
     @contribution = @projet.contributions.build
   end
