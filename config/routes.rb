@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get ':language/language', to: 'setting#change_language', as: :change_language
+
+
   devise_for :users
 
   resources :projets do
