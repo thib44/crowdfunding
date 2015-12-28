@@ -8,7 +8,7 @@
 
         <h3><%= truncate(projet.nom, length: 40) %></h3>
       <% end %>
-      <strong class="text-center"><%= projet.objectif %>€</strong>
+      <strong class="text-center"><%= number_to_currency projet.objectif, locale: :fr %></strong>
       <div class="description">
         <%= truncate(projet.description, length: 205) %>
       </div>

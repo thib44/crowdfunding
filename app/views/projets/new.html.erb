@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h3 class="text-center">Welcome to your new project creation :-)</h3>
 
-      <%= simple_form_for(@projet) do |f| %>
+      <%= simple_form_for(@projet, html: {class: 'form-horizontal'}) do |f| %>
         <%= f.input :objectif, placeholder: "Montant à atteindre", label: false %>
         <%= f.input :nom, placeholder: 'Nom de votre campagne', label: false %>
         <%= f.input :description, as: :text, placeholder: 'Description de votre campagne', label: false %>
