@@ -7,6 +7,7 @@ class Projet < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+
   def end_date_cannot_be_in_the_past
     unless contributable?
       errors.add(:end_date, "can't be in the past")
