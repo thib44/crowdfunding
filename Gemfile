@@ -37,6 +37,7 @@ gem "rails-erd"
 
 #pagination
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # Langue
 gem 'rails-i18n'
