@@ -15,7 +15,7 @@ class Projet < ActiveRecord::Base
   end
 
   def contributable?
-    end_date > Date.today
+    end_date > Date.today rescue false
   end
 
   def amount_contributed
