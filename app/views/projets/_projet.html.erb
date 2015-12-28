@@ -6,10 +6,12 @@
     <div class="text-center panel-body">
       <%= link_to projet_path(projet) do %>
 
-        <h3><%= projet.nom %></h3>
+        <h3><%= truncate(projet.nom, length: 40) %></h3>
       <% end %>
-      <strong class="text-center"><%= projet.objectif %>€</strong><br/>
-      <%= projet.description %><br/>
+      <strong class="text-center"><%= projet.objectif %>€</strong>
+      <div class="description">
+        <%= truncate(projet.description, length: 205) %>
+      </div>
       <%= render 'projets/progress_bar', projet: projet %>
     </div>
 
