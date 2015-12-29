@@ -48,6 +48,8 @@ gem 'activeadmin', github: 'activeadmin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'faker'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -62,7 +64,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'faker'
+
   gem 'rspec-rails'
 end
 
