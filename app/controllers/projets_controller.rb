@@ -10,8 +10,10 @@ class ProjetsController < Users::ApplicationController
 
     if @projet.save
       redirect_to root_path
+      flash[:notice] = "Project #{@projet.nom} has been created with success"
     else
       render :new
+      flash[:alert] = "Sorry something went wrong and we can't create your project"
     end
   end
 
