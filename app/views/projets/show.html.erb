@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8  text-center margin-top">
-      <% if @projet.picture.url %>
-            <%= image_tag @projet.picture, class: "full_img" %>
-        <% end %>
+      <%# if @projet.picture.url %>
+            <%= image_tag picture_thumb, class: "full_img" %>
+        <%# end %>
       <div class="margin-top">
         <%= @projet.description %><br/>
 
