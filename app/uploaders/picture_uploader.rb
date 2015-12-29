@@ -16,10 +16,4 @@ class PictureUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [800, 800]
   end
 
-  if Rails.env.production?
-    def extension_white_list
-      %w(jpg jpeg gif png)
-    end
-  end
-
 end
