@@ -42,6 +42,9 @@ gem 'bootstrap-kaminari-views'
 # Langue
 
 gem 'rails-i18n'
+gem 'activeadmin', github: 'activeadmin'
+# Active admin
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
