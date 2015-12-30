@@ -52,6 +52,7 @@ gem 'activeadmin', github: 'activeadmin'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
+gem "share"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
