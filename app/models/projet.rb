@@ -35,7 +35,11 @@ class Projet < ActiveRecord::Base
   end
 
   def to_param
-    "#{id.to_s}-#{nom.parameterize}"
+    "#{id}-#{nom.parameterize}"
+  end
+
+  def to_s
+    nom
   end
 
   def done

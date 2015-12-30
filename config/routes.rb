@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get ':language/language', to: 'setting#change_language', as: :change_language
 
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :projets do
     resources :contributions
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     root to: 'users#index', as: :authenticated_root
   end
   root 'pages#home'
+
+  get 'cgu' => 'pages#cgu'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
