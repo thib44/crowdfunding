@@ -15,6 +15,7 @@ Devise.setup do |config|
 
   #Facebook
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], scope: 'email', info_fields: 'email, first_name,last_name', image_size: 'large'
+  config.omniauth :linkedin, ENV["LINKEDIN_ID"], ENV["LINKEDIN_SECRET"], scope: 'r_basicprofile r_emailaddress'
 
 
   config.mailer_sender = 'thibault.finot@capsens.eu'
