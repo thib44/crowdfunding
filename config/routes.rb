@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get ':language/language', to: 'setting#change_language', as: :change_language
 
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :projets do
     resources :contributions

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro'
 
 
 gem 'font-awesome-sass', '~> 4.5.0'
