@@ -27,7 +27,7 @@
             <% if @projet.contributable? %>
               <%= link_to 'Contribuer', new_projet_contribution_path(@projet), class: 'btn btn-success margin-top' %>
             <% end %>
-            <%= social_share_button_tag(@projet.nom, popup: "true") %>
+            <%= social_share_button_tag(@projet.nom) %>
           </div>
         <% end %>
       </div>
