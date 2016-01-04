@@ -18,10 +18,13 @@ class ContributionsController < Users::ApplicationController
 
 
   private
+
   def contribution_params
     params.require(:contribution).permit(:amount)
   end
+
   def find_projet
     @projet = Projet.find(params[:projet_id])
   end
+
 end

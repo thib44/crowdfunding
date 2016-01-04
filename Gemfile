@@ -53,6 +53,9 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'faker'
 
+gem 'money-rails'
+gem 'mangopay'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

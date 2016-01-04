@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 sign">
+        <div class= "text-center">
+          <h1>Edit your profil</h1>
+        </div>
+        <%= simple_form_for (@user), html: { class: 'form-horizontal'} do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :first_name %>
+
+          <%= f.input :last_name %>
+
+          <%= f.button :submit , class: "btn btn-success", value: 'Edit my profil' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+

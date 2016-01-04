@@ -20,9 +20,13 @@ class User < ActiveRecord::Base
     # user.token_expiry = Time.at(auth.credentials.expires_at)
   end
 
+  def create_mp_user
+    MangoPay::NaturalUser.create user_params
+  end
+
   private
 
-  def omniauth_strategie(auth)
+  def self.omniauth_strategie(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -33,6 +37,20 @@ class User < ActiveRecord::Base
       user.picture = auth.info.image
       user.token = auth.credentials.token
     end
+  end
+
+
+
+  def user_params
+    {
+      Email: self.email,
+      FirstName: self.first_name,
+      LastName: self.last_name,
+      Address: 'Here',
+      Birthday: Date.parse('01-01-2000').to_time.to_i,
+      CountryOfResidence: 'FR',
+      Nationality: 'Fr',
+    }
   end
 
 end
