@@ -6,9 +6,12 @@
         </div>
         <%= simple_form_for (@user), html: { class: 'form-horizontal'} do |f| %>
           <%= f.error_notification %>
+          <%= f.input :email %>
           <%= f.input :first_name %>
-
           <%= f.input :last_name %>
+          <%= f.input :birthday, as: :date %>
+          <%= f.input :nationality, placeholder: 'fr' %>
+          <%= f.input :country_of_residence, placeholder: 'fr' %>
 
           <%= f.button :submit , class: "btn btn-success", value: 'Edit my profil' %>
         <% end %>
